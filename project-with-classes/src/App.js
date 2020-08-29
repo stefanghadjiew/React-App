@@ -28,7 +28,10 @@ class App extends Component {
           <Router>
             <div className="App">
               <Navbar isLoggedIn={this.state.isLoggedIn}/>
-              <Main addUserToState={this.addUserToState} isLoggedIn={this.state.isLoggedIn}/>
+              <Main addUserToState={this.addUserToState} 
+              username={this.state.user.username} 
+              isLoggedIn={this.state.isLoggedIn}
+              userId ={this.state.user.id}/>
             </div>
           </Router>
         );
