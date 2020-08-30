@@ -30,5 +30,13 @@ exports.getMovies = async (req,res,next) => {
 }
 
 exports.deleteMovie = async (req,res,next) => {
-
+    try{
+        let movieToDelete = await db.Movie.findById(req.params.movie_id)
+        console.log(req.params.movie_id)
+        await movieToDelete.remove()
+        return res.status(200).json(movieToDelete)
+    } catch(err){
+        return next(err)
+    }
+   
 }

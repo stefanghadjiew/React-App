@@ -46,3 +46,17 @@ code {
   background-image: url("./images/wallhaven-42dmvg.jpg");
   background-size: cover;
 }
+
+.wrapper > h2,h4,button {
+  margin:10px 10px;
+}
+
+.movie-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.movie-container>h4 {
+  text-align: center;
+}

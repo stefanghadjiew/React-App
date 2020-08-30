@@ -3,19 +3,18 @@ import {Link} from "react-router-dom"
 import MovieList from "./MovieList"
 
 
+
 const Home = ({username,isLoggedIn,userId,token}) => {
    
-    const handleClick = () => {
-        console.log(userId)
-    }
-    
-        
     if (isLoggedIn === false) {
         return (
             <div className="wrapper">
                 <h2>Welcome,Guest!</h2>
                 <h4>This is your personal ToWatchList</h4>
+                <Link to="/register">
                 <button className="btn btn-primary">Register</button>
+                </Link>
+               
             </div>
         )
     } else {
@@ -25,7 +24,7 @@ const Home = ({username,isLoggedIn,userId,token}) => {
             <h4>Here are the movies you need to watch : </h4>
             <MovieList userId={userId} token={token}/>
             <Link to="/movies">
-                <button className="btn btn-primary" onClick={handleClick}>Add a new Movie</button>
+                <button className="btn btn-primary">Add a new Movie</button>
             </Link>
             
         </div>
