@@ -21,7 +21,7 @@ class Authentication extends Component {
 
     apiCall = async (e) => {
         const {addUserToState} = this.props 
-        const btnText = this.props.btnText
+        const btnText = this.props.btnText.toLowerCase()
         e.preventDefault()
         const url = `/api/auth/${btnText}`
         await fetch (url,{
@@ -33,15 +33,16 @@ class Authentication extends Component {
            
         })
         .then(response => response.json())
-        .then(user =>addUserToState(user))
-        
+        .then(user => {
+            addUserToState(user)
+            console.log(user)
+        })
         .then(this.setState({
             username: "",
             password: "",
             email: "",
-            
-        }
-        ))
+        })
+        )
         .then(this.props.history.push("/"))
         
     } 

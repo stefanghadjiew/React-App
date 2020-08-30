@@ -5,11 +5,12 @@ import Authentication from "./Authentication"
 import MovieForm from "./MovieForm"
 
 class Main extends Component {
+    
     constructor(props){
         super(props)
     }
     render () {
-        const {isLoggedIn,addUserToState,username,userId} = this.props
+        const {isLoggedIn,addUserToState,username,userId,token} = this.props
         return (
             <div className="container">
                 <Switch>
@@ -17,6 +18,7 @@ class Main extends Component {
                     userId={userId} 
                     isLoggedIn={isLoggedIn} 
                     username={username}
+                    token={token}
                     {...props}/>}/>
                     <Route exact path="/signin" render = {props => <Authentication 
                     btnText="Signin" 
@@ -29,7 +31,12 @@ class Main extends Component {
                     isLoggedIn={isLoggedIn} 
                     addUserToState={addUserToState} 
                     {...props}/>}/>
-                    <Route exact path="/movies" render = {props=> <MovieForm/>}/>
+                    <Route exact path="/movies" render = {props=> <MovieForm 
+                    isLoggedIn={isLoggedIn}
+                    userId={userId}
+                    token={token}
+                    addUserToState={addUserToState}
+                    {...props}/>}/>
                 </Switch>
             </div>
         )

@@ -1,14 +1,15 @@
 import React from "react";
 import {Link} from "react-router-dom"
+import MovieList from "./MovieList"
 
 
-const Home = ({username,isLoggedIn,userId}) => {
+const Home = ({username,isLoggedIn,userId,token}) => {
+   
     const handleClick = () => {
         console.log(userId)
     }
-        /* console.log(userId) */
     
-    
+        
     if (isLoggedIn === false) {
         return (
             <div className="wrapper">
@@ -22,6 +23,7 @@ const Home = ({username,isLoggedIn,userId}) => {
             <div className="wrapper">
             <h2>Greetings {username}</h2>
             <h4>Here are the movies you need to watch : </h4>
+            <MovieList userId={userId} token={token}/>
             <Link to="/movies">
                 <button className="btn btn-primary" onClick={handleClick}>Add a new Movie</button>
             </Link>

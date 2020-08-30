@@ -18,8 +18,15 @@ exports.createMovie = async (req,res,next) => {
     }
 }
 
-exports.getMovies = async (req,res,next) => {
 
+
+exports.getMovies = async (req,res,next) => {
+    try {
+        let foundMovies = await db.Movie.find({user:req.params.id})
+        res.status(200).json(foundMovies)
+    } catch(err) {
+        return next(err)
+    }
 }
 
 exports.deleteMovie = async (req,res,next) => {

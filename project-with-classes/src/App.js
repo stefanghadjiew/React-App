@@ -10,8 +10,8 @@ class App extends Component {
       this.state = {
         isLoggedIn: false,
         user : {},
-        userMovies: [],
         }
+        
         this.addUserToState=this.addUserToState.bind(this)
       }
     
@@ -19,9 +19,11 @@ class App extends Component {
       this.setState({
         isLoggedIn:true,
         user : dataFromAuth,
-        userMovies : dataFromAuth.movies
+        userMovies : []
       })
     }  
+
+    
 
     render () {
         return (
@@ -31,7 +33,8 @@ class App extends Component {
               <Main addUserToState={this.addUserToState} 
               username={this.state.user.username} 
               isLoggedIn={this.state.isLoggedIn}
-              userId ={this.state.user.id}/>
+              userId ={this.state.user.id}
+              token ={this.state.user.token}/>
             </div>
           </Router>
         );
