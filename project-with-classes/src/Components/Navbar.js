@@ -6,34 +6,39 @@ import Logo from "../images/cine-defaut-1.jpg"
 class Navbar extends Component {
     constructor(props) {
         super(props)
-        this.handleClick = this.handleClick.bind(this)
+        this.logout = this.logout.bind(this)
  }
 
-handleClick() {
-let {isLoggedIn} = this.props
-  if (isLoggedIn === true){
-      isLoggedIn = false
-  } else {
-      isLoggedIn = true
-  }
+logout() {
+    const{addUserToState} = this.props
+addUserToState(false,{},{has:false,message:""})
     
 }
 
 
     render () {
         const {isLoggedIn} = this.props
-      /*   if(isLoggedIn === true) { */
+     
         return (
             <div>
                 <nav className="navbar navbar-expand-sm navbar-light" id="nav">
                     <div className="container-fluid">
-                        <Link to="/" className="navbar-brand">
-                            <img src={Logo} alt="ToWatchList"></img>
+                        <Link 
+                        to="/" 
+                        className="navbar-brand">
+                        <img src={Logo} alt="ToWatchList"></img>
                         </Link>
                         <ul className="nav navbar-nav justify-content-end">
-                            <li className="nav-item">
-                                <Link to="/signin" className="nav-link" onClick={(this.handleClick)}>{(isLoggedIn === false) ? "Login" : "Logout"}</Link>
+                            {(isLoggedIn===false) && (
+                                <li className="nav-item">
+                                <Link to="/signin" className="nav-link">Login</Link>
                             </li>
+                            )}
+                            {(isLoggedIn===true) && (
+                                <li className="nav-item">
+                                    <button className="btn btn-primary" onClick={this.logout}>Logout</button>
+                                </li>
+                            )}
                             <li className="nav-item">
                                 <Link to="/register" className="nav-link">Register</Link>
                             </li>
@@ -42,11 +47,7 @@ let {isLoggedIn} = this.props
                 </nav>
             </div>
            )
-  /*   } else {
-        return (
-            <h1>No one is logged in!</h1>
-        )
-    } */
+  /* { {(isLoggedIn === false) ? "Login" : "Logout"} } */
 }
 
 }

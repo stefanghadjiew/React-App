@@ -10,27 +10,48 @@ class App extends Component {
       this.state = {
         isLoggedIn: false,
         user : {},
+        error: {
+          has : false,
+          message : ""
+        }
         }
         
         this.addUserToState=this.addUserToState.bind(this)
+        this.logOutUser=this.logOutUser.bind(this)
+       
       }
     
-    addUserToState (dataFromAuth) {
+    addUserToState (bool,dataFromAuth,errFromAuth) {
       this.setState({
-        isLoggedIn:true,
+        isLoggedIn:bool,
         user : dataFromAuth,
-        userMovies : []
+        error:errFromAuth,
       })
+      console.log(this.state.error.message)
     }  
 
+    logOutUser() {
+      this.setState({
+          isLoggedIn: false,
+          user : {},
+          error: {
+            has : false,
+            message : ""
+          }
+      })
+    }
+   
     
 
     render () {
-        return (
+      return (
           <Router>
             <div className="App">
-              <Navbar isLoggedIn={this.state.isLoggedIn}/>
-              <Main addUserToState={this.addUserToState} 
+              <Navbar 
+              isLoggedIn={this.state.isLoggedIn}
+              addUserToState={this.addUserToState}/>
+              <Main addUserToState={this.addUserToState}
+              error={this.state.error.message}
               username={this.state.user.username} 
               isLoggedIn={this.state.isLoggedIn}
               userId ={this.state.user.id}

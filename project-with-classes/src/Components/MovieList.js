@@ -37,7 +37,6 @@ class MovieList extends Component {
           )
       }
         const movies = this.state.userMovies
-        console.log(movies)
         let movieList = movies.map(m =>(
                 <MovieItem
                 token={this.props.token}

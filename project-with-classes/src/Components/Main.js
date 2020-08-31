@@ -1,32 +1,29 @@
-import React, { Component } from "react"
+import React from "react"
 import { Switch,Route } from "react-router-dom"
 import Home from "./Home"
 import Authentication from "./Authentication"
 import MovieForm from "./MovieForm"
 
-class Main extends Component {
-    
-    constructor(props){
-        super(props)
-    }
-    render () {
-        const {isLoggedIn,addUserToState,username,userId,token} = this.props
+const Main = (props) => {
+     const {isLoggedIn,addUserToState,username,userId,token,error} = props
         return (
             <div className="container">
                 <Switch>
-                    <Route exact path="/" render={props => <Home 
+                    <Route exact path="/" render={props => <Home
                     userId={userId} 
                     isLoggedIn={isLoggedIn} 
                     username={username}
                     token={token}
                     {...props}/>}/>
-                    <Route exact path="/signin" render = {props => <Authentication 
+                    <Route exact path="/signin" render = {props => <Authentication
+                    error={error} 
                     btnText="Signin" 
                     isLoggedIn={isLoggedIn} 
                     addUserToState={addUserToState}
                     {...props}/>}/>
                     <Route exact path="/register" render = {props => <Authentication 
-                    signUp 
+                    signUp
+                    error={error} 
                     btnText="Register" 
                     isLoggedIn={isLoggedIn} 
                     addUserToState={addUserToState} 
@@ -41,6 +38,6 @@ class Main extends Component {
             </div>
         )
     }
-}
+
 
 export default Main;

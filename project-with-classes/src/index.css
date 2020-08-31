@@ -47,7 +47,7 @@ code {
   background-size: cover;
 }
 
-.wrapper > h2,h4,button {
+.wrapper > h2,h4 {
   margin:10px 10px;
 }
 
