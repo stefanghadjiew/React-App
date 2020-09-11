@@ -41,6 +41,7 @@ class MovieList extends Component {
                 <MovieItem
                 token={this.props.token}
                 userId={this.props.userId}
+                movieImgUrl={m.movieImgUrl}
                 movieId={m._id}
                 key={m._id} 
                 name ={m.name} 

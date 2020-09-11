@@ -9,11 +9,11 @@ class Navbar extends Component {
         this.logout = this.logout.bind(this)
  }
 
-logout() {
-    const{addUserToState} = this.props
-addUserToState(false,{},{has:false,message:""})
+    logout() {
+        const {addUserToState} = this.props
+        addUserToState(false,{},{has:false,message:""})
     
-}
+    }
 
 
     render () {
@@ -26,7 +26,7 @@ addUserToState(false,{},{has:false,message:""})
                         <Link 
                         to="/" 
                         className="navbar-brand">
-                        <img src={Logo} alt="ToWatchList"></img>
+                        Home
                         </Link>
                         <ul className="nav navbar-nav justify-content-end">
                             {(isLoggedIn===false) && (
@@ -36,7 +36,7 @@ addUserToState(false,{},{has:false,message:""})
                             )}
                             {(isLoggedIn===true) && (
                                 <li className="nav-item">
-                                    <button className="btn btn-primary" onClick={this.logout}>Logout</button>
+                                    <button className="log-out-btn" onClick={this.logout}>Logout</button>
                                 </li>
                             )}
                             <li className="nav-item">

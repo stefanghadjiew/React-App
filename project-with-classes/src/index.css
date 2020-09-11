@@ -20,20 +20,20 @@ code {
 
 .nav-link {
   font-weight: bold;
+ color: #e34c26 !important;
 }
 
 .nav-link:hover {
-  color: white !important;
   text-decoration: underline;
 }
 
 #nav {
-  background-color: greenyellow !important;
+  background-color:transparent;
 }
 
 .wrapper {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  min-height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -43,20 +43,44 @@ code {
   top: 0;
   left: 0;
   z-index: -1;
-  background-image: url("./images/wallhaven-42dmvg.jpg");
+  background-image: url("./images/wallhaven-oxz7gm.jpg");
   background-size: cover;
 }
 
 .wrapper > h2,h4 {
   margin:10px 10px;
+  color:  #e34c26;
 }
 
 .movie-container {
+  margin: 2vh 0;
   display: flex;
-  justify-content: center;
+  justify-content:space-between;
   align-items: center;
 }
 
 .movie-container>h4 {
   text-align: center;
+}
+
+label {
+  color:#e34c26 ;
+}
+
+.navbar-brand {
+  color: #e34c26 !important;
+}
+
+.log-out-btn  {
+  padding: .5rem;
+  font-weight: bold;
+  vertical-align: middle;
+  background-color: transparent;
+  border: none;
+  outline: none;
+  color: #e34c26;
+}
+
+.log-out-btn:hover {
+  text-decoration: underline;
 }

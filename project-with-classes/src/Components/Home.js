@@ -4,7 +4,7 @@ import MovieList from "./MovieList"
 
 
 
-const Home = ({username,isLoggedIn,userId,token,has}) => {
+const Home = ({username,isLoggedIn,userId,token}) => {
     if (isLoggedIn === false) {
         return (
             <div className="wrapper">
