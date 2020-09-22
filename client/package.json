@@ -11,14 +11,13 @@
     "react-router-dom": "^5.2.0",
     "react-scripts": "3.4.3"
   },
-  "proxy": "http://localhost:8080",
+  
   "scripts": {
     "dev":"react-scripts start",
     "start": "serve -s build",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "heroku-postbuild":"npm run build"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"

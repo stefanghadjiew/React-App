@@ -22,7 +22,7 @@ class MovieForm extends Component {
     sendMovie = async (e) => {
         const {userId,token} = this.props
         e.preventDefault()
-        const url = `/api/users/${userId}/movies`
+        const url = `api/users/${userId}/movies`
         await fetch(url,{
             method : 'POST',
             headers: {

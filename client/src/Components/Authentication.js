@@ -24,7 +24,7 @@ class Authentication extends Component {
         const {addUserToState} = this.props
         const btnText = this.props.btnText.toLowerCase()
             e.preventDefault()
-            const url = `/api/auth/${btnText}`
+            const url = `api/auth/${btnText}`
             await fetch (url,{
                 method:"POST",
                 headers: {

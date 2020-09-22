@@ -3,7 +3,7 @@ import noImage from "../images/cine-defaut-1.jpg"
 
 const MovieItem = ({name,desc,movieId,userId,token,removeMoviesFromState,movieImgUrl}) => {
     const deleteMovie = async () => {
-       const url = `/api/users/${userId}/movies/${movieId}`
+       const url = `api/users/${userId}/movies/${movieId}`
         try {
             await fetch(url,{
                 method:"DELETE",

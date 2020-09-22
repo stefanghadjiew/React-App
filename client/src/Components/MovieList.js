@@ -11,7 +11,7 @@ class MovieList extends Component {
     }
 
     componentDidMount() {
-        const url = `/api/users/${this.props.userId}/movies/`
+        const url = `api/users/${this.props.userId}/movies/`
         fetch (url,{
             method: 'GET',
             headers: {
