@@ -1,0 +1,1 @@
+Node JS + express API serving the authentication/authorization requests.Hosted on Heroku and using Mongo Atlas DB.
